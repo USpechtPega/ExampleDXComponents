@@ -88,6 +88,15 @@ export const BasePegaExtensionsCalender = () => {
     weekendIndicator: boolean(`Show week-ends`, true),
     getPConnect: () => {
       return {
+        getValue: value => {
+          return value;
+        },
+        getContextName: () => {
+          return 'app/primary_1';
+        },
+        getLocalizedValue: value => {
+          return value;
+        },
         getActionsApi: () => {
           return {
             openWorkByHandle: () => {
