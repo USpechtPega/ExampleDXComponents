@@ -1,0 +1,68 @@
+{
+  "name": "Pega_Extensions_Calender",
+  "label": "Calender",
+  "description": "Calender for appointments",
+  "organization": "Pega",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "Pega_Extensions_Calender",
+  "type": "Widget",
+  "subtype": "CASE",
+  "icon": "OneColumnPage.svg",
+  "properties": [
+    {
+      "name": "title",
+      "label": "Label value",
+      "format": "TEXT"
+    },
+    {
+      "name": "dataPage",
+      "label": "Data Page name",
+      "format": "TEXT"
+    },
+    {
+      "name": "createClassname",
+      "label": "Create case className",
+      "format": "TEXT"
+    },
+    {
+      "name": "defaultViewMode",
+      "label": "Default view",
+      "format": "SELECT",
+      "defaultValue": "Monthly",
+      "source": [
+        {
+          "key": "Daily",
+          "value": "Daily"
+        },
+        {
+          "key": "Weekly",
+          "value": "Weekly"
+        },
+        {
+          "key": "Monthly",
+          "value": "Monthly"
+        }
+      ]
+    },
+    {
+      "name": "nowIndicator",
+      "label": "Show current day",
+      "format": "BOOLEAN",
+      "defaultValue": true
+    },
+    {
+      "name": "weekendIndicator",
+      "label": "Show week-ends",
+      "format": "BOOLEAN",
+      "defaultValue": true
+    }
+  ],
+  "defaultConfig": {
+     "label": "@L Calender",
+     "title": "Calendar",
+	 "dataPage": "",
+     "defaultViewMode": "Monthly"
+  }
+}
