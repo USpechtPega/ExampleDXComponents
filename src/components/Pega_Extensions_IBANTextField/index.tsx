@@ -182,27 +182,23 @@ export default function PegaExtensionsIbanTextField(props: PegaExtensionsIbanTex
     if (hasSuggestions) {
       setStatus(undefined);
     }
-	
-	// inserted IBAN code
-	// Remove any non-alphanumeric characters
+
+    // inserted IBAN code
+    // Remove any non-alphanumeric characters
     let iban = event.target.value.replace(/[^a-zA-Z0-9]/g, '');
-	
-	iban = iban.trim();
-	//console.log("Hel"+iban);
+
+    iban = iban.trim();
     // Limit the IBAN length to maxLength characters (+spaces)
-	let i= digibit;
-	//console.log("Hel2 "+i);
-    iban = iban.slice(0, i);
-	//console.log("Hel1"+iban);
+    iban = iban.slice(0, digibit);
 
     // Add a space every 4 characters for better readability
     iban = iban.replace(/(.{4})/g, '$1 ');
 
     // Update the input field with the formatted IBAN
-	event.target.value = iban.trim();
+    event.target.value = iban.trim();
 
-	//end inserted IBAN code
-	
+    // end inserted IBAN code
+
     setInputValue(event.target.value);
     if (value !== event.target.value) {
       handleEvent(actions, 'change', propName, event.target.value);

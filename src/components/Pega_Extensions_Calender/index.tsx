@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import {
   Text,
   Status,
@@ -16,7 +15,6 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 
 
-import StyledPegaExtensionsCalenderWrapper from './styles';
 
 // interface for props
 interface PegaExtensionsCalenderProps extends PConnFieldProps {
@@ -49,14 +47,9 @@ export default function PegaExtensionsCalender(props: PegaExtensionsCalenderProp
     nowIndicator = true,
     weekendIndicator = true,
   } = props;
-  const [isLoading, setIsLoading] = useState(true);
   const [events, setEvents] = useState<appointment[]>();
   const calendarRef = useRef(null);
-  const pConn = getPConnect();
-  const context = pConn.getContextName();
-  const caseProp: string = PCore.getConstants().CASE_INFO.CASE_INFO_ID;
-  const caseID = pConn.getValue(caseProp, '');
-
+ 
   interface DateInfo {
     end: string;
     start: string;
@@ -87,15 +80,6 @@ export default function PegaExtensionsCalender(props: PegaExtensionsCalenderProp
     }
   }
 
-  // const caseProp: string = PCore.getConstants().CASE_INFO.CASE_INFO_ID;
-  // const caseID = pConn.getValue(caseProp, '');
-  //const context = pConn.getContextName();
-
-  /*const columns = [
-    { renderer: 'date', label: pConn.getLocalizedValue('Date', '', '') },
-    { renderer: 'description', label: pConn.getLocalizedValue('Description', '', '') },
-    { renderer: 'user', label: pConn.getLocalizedValue('Performed by', '','') }
-  ];*/
 
 
   const getDefaultView = () => {
@@ -279,7 +263,7 @@ export default function PegaExtensionsCalender(props: PegaExtensionsCalenderProp
       () => {
         /* If an assignment is updated - force a reload of the events */
         loadEvents();
-      },
+       },
       'ASSIGNMENT_SUBMISSION'
     );
     return () => {
@@ -289,13 +273,10 @@ export default function PegaExtensionsCalender(props: PegaExtensionsCalenderProp
         'ASSIGNMENT_SUBMISSION'
       );
     };
-  }, []);
-
-  useEffect(() => {
-    loadEvents();
-  }, []);
+  }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
 
+// @ts-ignore
   return (
     <Card>
       <CardHeader
@@ -307,7 +288,7 @@ export default function PegaExtensionsCalender(props: PegaExtensionsCalenderProp
           ) : undefined
         }
       >
-        <Text variant='h2'>{title}</Text>
+      <Text variant='h2'>{title}</Text>
       </CardHeader>
       <CardContent>
         <FullCalendar
