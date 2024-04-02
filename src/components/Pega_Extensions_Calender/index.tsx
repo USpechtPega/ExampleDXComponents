@@ -54,6 +54,8 @@ export default function PegaExtensionsCalender(props: PegaExtensionsCalenderProp
   const calendarRef = useRef(null);
   const pConn = getPConnect();
   const context = pConn.getContextName();
+  const caseProp: string = PCore.getConstants().CASE_INFO.CASE_INFO_ID;
+  const caseID = pConn.getValue(caseProp, '');
 
   interface DateInfo {
     end: string;
@@ -232,20 +234,11 @@ export default function PegaExtensionsCalender(props: PegaExtensionsCalenderProp
   }
 
 
-  interface Payload {
-    dataViewParameters: object,
-    query: object,
-    paging: object,
-    useExtendedTimeout: boolean
-  }
+
   const loadEvents = () => {
-    const empyPayload: Payload = {
-      dataViewParameters: {},
-      query: {},
-      paging: {},
-      useExtendedTimeout: false
-    };
-    const result = window.PCore.getDataApiUtils().getData(dataPage, empyPayload, context)
+
+    // @ts-ignore
+    const result = window.PCore.getDataApiUtils().getData(dataPage);
     if (result instanceof Promise) {
       result.then((response: ResponseData) => {
         if (response.data.data !== null) {

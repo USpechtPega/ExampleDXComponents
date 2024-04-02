@@ -8,7 +8,7 @@
   "allowedApplications": [],
   "componentKey": "Pega_Extensions_Calender",
   "type": "Widget",
-  "subtype": "CASE",
+  "subtype": ["PAGE", "CASE"],
   "icon": "OneColumnPage.svg",
   "properties": [
     {

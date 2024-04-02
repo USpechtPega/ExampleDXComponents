@@ -33,6 +33,14 @@ window.PCore.getEvents = () =>{
   };
 };
 
+window.PCore.getConstants = () => {
+  return {
+    CASE_INFO: {
+      CASE_INFO_ID: 'caseInfo.ID'
+    }
+  };
+};
+
 window.PCore.getPubSubUtils = () =>{
   {
     return {
