@@ -6,6 +6,9 @@ This Examples intention is to get started quickly with deployment of first DX Co
 
 These components have been tested on Pega 24.1 and might not run on older versions of the platform - For older versions, the recommendation is to download the supported version of the Constellation DX Component builder package @pega/custom-dx-components@XXXX supported by your Pega Platform version and create new components using the command line utility 'npm run create'.
 
+## For Pega Lowcode Developers
+To download the component go to [release](https://github.com/USpechtPega/ExampleDXComponents/releases/tag/sample)
+
 ## For developers
 
 To build and compile the application - use the following commands:
